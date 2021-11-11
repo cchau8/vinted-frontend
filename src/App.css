@@ -1,1 +1,31 @@
 /* Other rules */
+* {
+	box-sizing: border-box;
+}
+body {
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.product-details {
+	display: flex;
+	flex-direction: column;
+}
+.products-container {
+	width: 1220px;
+	margin: 50px auto;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px 15px;
+	justify-content: flex-start;
+}
+
+a {
+	color: black;
+	text-decoration: none;
+	flex: 0 1 15%;
+	cursor: pointer;
+}
+.product-item img {
+	width: 230px;
+	height: 360px;
+	object-fit: cover;
+}
