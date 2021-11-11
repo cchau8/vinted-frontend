@@ -1,21 +1,20 @@
 import React from "react";
-import { useState } from "react";
 import axios from "axios";
+import { useState } from "react";
 import { useNavigate } from "react-router";
 
-const SignUp = ({ setToken }) => {
-	const [username, setUsername] = useState("");
+const Login = ({ setToken }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
 	const navigate = useNavigate();
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
 			const response = await axios.post(
-				"https://vinted-api-cedric-chau.herokuapp.com/user/signup",
+				"https://vinted-api-cedric-chau.herokuapp.com/user/login",
 				{
-					username: username,
 					email: email,
 					password: password,
 				}
@@ -30,41 +29,33 @@ const SignUp = ({ setToken }) => {
 	return (
 		<div className="signup-page">
 			<form
+				method="POST"
+				className="signup"
 				onSubmit={(e) => {
 					handleSubmit(e);
 				}}
-				method="POST"
-				className="signup"
 			>
-				<span>S'inscrire</span>
+				<span>Se connecter</span>
 				<input
-					placeholder="Username"
-					type="text"
-					name="username"
-					onChange={(e) => {
-						setUsername(e.target.value);
-					}}
-				/>
-				<input
-					placeholder="E-Mail"
+					placeholder="Email"
 					type="email"
-					name="email"
+					name=""
 					onChange={(e) => {
 						setEmail(e.target.value);
 					}}
 				/>
 				<input
-					placeholder="Password"
 					type="password"
-					name="password"
+					placeholder="Password"
+					name=""
 					onChange={(e) => {
 						setPassword(e.target.value);
 					}}
 				/>
-				<input type="submit" value="S'inscrire" />
+				<input type="submit" value="Se connecter" />
 			</form>
 		</div>
 	);
 };
 
-export default SignUp;
+export default Login;

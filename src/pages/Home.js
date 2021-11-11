@@ -1,9 +1,10 @@
 import React from "react";
-// import "../styles/home.css";
+import "../styles/home.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ProductItem from "../components/ProductItem";
+import banner from "../assets/banner.jpg";
 
 const Home = () => {
 	const [data, setData] = useState([]);
@@ -28,15 +29,29 @@ const Home = () => {
 	return isLoading ? (
 		<p>loading</p>
 	) : (
-		<div className="products-container">
-			{data.offers.map((el, i) => {
-				return (
-					<Link to={`/offer/${el._id}`} key={i}>
-						<ProductItem item={el} />
-					</Link>
-				);
-			})}
-		</div>
+		<main>
+			<div className="hero">
+				<img src={banner} alt="" />
+				<div className="hero-content">
+					<h1>Prêts à faire du tri dans vos placards ?</h1>
+					<button>Vends maintenant</button>
+					<Link to="/">Découvrir comment ça marche</Link>
+				</div>
+				<div className="tear"></div>
+			</div>
+			<section>
+				<h2>Fil d'actualité</h2>
+				<div className="products-container">
+					{data.offers.map((el, i) => {
+						return (
+							<Link to={`/offer/${el._id}`} key={i}>
+								<ProductItem item={el} />
+							</Link>
+						);
+					})}
+				</div>
+			</section>
+		</main>
 	);
 };
 

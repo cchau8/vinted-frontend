@@ -1,14 +1,40 @@
 import React from "react";
 import "../styles/header.css";
-const Header = () => {
+import { useNavigate } from "react-router";
+import Cookies from "js-cookie";
+import logo from "../assets/Vinted-logo.svg.png";
+const Header = ({ token, setToken }) => {
+	const navigate = useNavigate();
+	const handleSignOut = () => {
+		setToken("");
+		Cookies.remove("token");
+		navigate("/");
+	};
 	return (
 		<header>
 			<div>
-				<h1>Vinted</h1>
+				<a href="/">
+					<img src={logo} alt="" />
+				</a>
 				<nav>
-					<li>S'inscrire</li>
-					<li>Se connecter</li>
-					<li>Vends tes articles</li>
+					{token ? (
+						<button onClick={handleSignOut} className="signout">
+							Se déconnecter
+						</button>
+					) : (
+						<div>
+							<button onClick={() => navigate("/signup")}>S'inscrire</button>
+
+							<button
+								onClick={() => {
+									navigate("/login");
+								}}
+							>
+								Se connecter
+							</button>
+						</div>
+					)}
+					<button className="sell">Vends tes articles</button>
 				</nav>
 			</div>
 		</header>

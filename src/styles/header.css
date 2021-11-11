@@ -1,8 +1,9 @@
 header {
 	width: 100%;
-	height: 120px;
-	background-color: lightblue;
+	height: 60px;
+	background-color: #fff;
 	display: flex;
+	border-bottom: 1px solid #dbdbdb;
 }
 header > div {
 	width: 1200px;
@@ -15,9 +16,47 @@ header > div {
 nav {
 	display: flex;
 	list-style-type: none;
-	width: 30%;
+	width: 40%;
 	justify-content: space-between;
+	align-items: center;
 }
-h1 {
-	font-size: 38px;
+header a {
+	width: 80px;
+	height: 40px;
+}
+header img {
+	width: 100%;
+	object-fit: cover;
+}
+header button {
+	width: fit-content;
+	padding: 6px 20px;
+	margin: 10px;
+	border: none;
+	outline: var(--main-teal) 1px solid;
+	border-radius: 3px;
+	background-color: #fff;
+	color: var(--main-teal);
+	font-family: inherit;
+	cursor: pointer;
+	transition: ease-in 0.1s;
+}
+header button:hover {
+	color: #fff;
+	background-color: var(--main-teal);
+	transition: ease-in 0.1s;
+}
+.sell {
+	background-color: var(--main-teal);
+	color: #fff;
+}
+.sell:hover {
+	color: var(--main-teal);
+	background-color: #fff;
+	transition: ease-in 0.1s;
+}
+.signout {
+	background-color: #d63f60;
+	color: #fff;
+	outline: none;
 }
