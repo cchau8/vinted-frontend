@@ -7,25 +7,29 @@ import Hero from "../components/Hero";
 import Loading from "../components/Loading";
 // import banner from ;
 
-const Home = () => {
-	const [data, setData] = useState([]);
+const Home = ({ input, products, setProducts, sort, range }) => {
 	const [isLoading, setIsLoading] = useState(true);
 
-	const fetchData = async () => {
-		try {
-			const response = await axios.get(
-				"https://vinted-api-cedric-chau.herokuapp.com/offers?page=1&limit=20"
-			);
-			setData(response.data);
-			setIsLoading(false);
-		} catch (error) {
-			console.log(error.message);
-		}
-	};
-
 	useEffect(() => {
+		const fetchData = async () => {
+			try {
+				let targetUrl = "https://vinted-api-cedric-chau.herokuapp.com/offers";
+				const title = input ? `title=${input}&` : "";
+				const sortBy = sort ? "sort=price-desc&" : "sort=price-asc&";
+				const priceMin = `priceMin=${range[0]}&`;
+				const priceMax = `priceMax=${range[1]}&`;
+				if (title || sortBy || priceMin || priceMax) {
+					targetUrl = `${targetUrl}?${title}${sortBy}${priceMin}${priceMax}`;
+				}
+				const response = await axios.get(`${targetUrl}page=1&limit=20`);
+				setProducts(response.data);
+				setIsLoading(false);
+			} catch (error) {
+				console.log(error.message);
+			}
+		};
 		fetchData();
-	}, []);
+	}, [setProducts, input, sort, range]);
 
 	return (
 		<>
@@ -37,7 +41,7 @@ const Home = () => {
 					<section>
 						<h2>Fil d'actualité</h2>
 						<div className="products-container">
-							{data.offers.map((el, i) => {
+							{products.offers.map((el, i) => {
 								return (
 									<Link to={`/offer/${el._id}`} key={i}>
 										<ProductItem item={el} />
