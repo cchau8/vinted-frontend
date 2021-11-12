@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-const Login = ({ setToken }) => {
+const Login = ({ setUser }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -19,7 +19,7 @@ const Login = ({ setToken }) => {
 					password: password,
 				}
 			);
-			setToken(response.data.token);
+			setUser(response.data.token);
 			navigate("/");
 		} catch (error) {
 			console.log(error.message);
@@ -29,7 +29,6 @@ const Login = ({ setToken }) => {
 	return (
 		<div className="signup-page">
 			<form
-				method="POST"
 				className="signup"
 				onSubmit={(e) => {
 					handleSubmit(e);

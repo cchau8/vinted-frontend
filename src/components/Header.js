@@ -1,15 +1,17 @@
 import React from "react";
+import { useState } from "react";
 import "../styles/header.css";
 import { useNavigate } from "react-router";
 import Cookies from "js-cookie";
 import logo from "../assets/Vinted-logo.svg.png";
-const Header = ({ token, setToken }) => {
+import SignUpModal from "./SignUpModal";
+import LoginModal from "./LoginModal";
+
+const Header = ({ token, setUser }) => {
+	const [showSignUp, setShowSignUp] = useState(false);
+	const [showLogin, setShowLogin] = useState(false);
 	const navigate = useNavigate();
-	const handleSignOut = () => {
-		setToken("");
-		Cookies.remove("token");
-		navigate("/");
-	};
+
 	return (
 		<header>
 			<div>
@@ -18,16 +20,33 @@ const Header = ({ token, setToken }) => {
 				</a>
 				<nav>
 					{token ? (
-						<button onClick={handleSignOut} className="signout">
+						<button
+							onClick={() => {
+								setUser(null);
+								Cookies.remove("token");
+								navigate("/");
+							}}
+							className="signout"
+						>
 							Se déconnecter
 						</button>
 					) : (
 						<div>
-							<button onClick={() => navigate("/signup")}>S'inscrire</button>
+							<button
+								onClick={() => {
+									setShowSignUp(true);
+									const body = document.querySelector("body");
+									body.style.overflow = "hidden";
+								}}
+							>
+								S'inscrire
+							</button>
 
 							<button
 								onClick={() => {
-									navigate("/login");
+									setShowLogin(true);
+									const body = document.querySelector("body");
+									body.style.overflow = "hidden";
 								}}
 							>
 								Se connecter
@@ -37,6 +56,16 @@ const Header = ({ token, setToken }) => {
 					<button className="sell">Vends tes articles</button>
 				</nav>
 			</div>
+			{showSignUp && (
+				<SignUpModal
+					setShowSignUp={setShowSignUp}
+					showSignUp={showSignUp}
+					setUser={setUser}
+				/>
+			)}
+			{showLogin && (
+				<LoginModal showLogin={showLogin} setShowLogin={setShowLogin} setUser={setUser} />
+			)}
 		</header>
 	);
 };

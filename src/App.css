@@ -13,12 +13,12 @@ body {
 	flex-direction: column;
 }
 section {
-	width: 1220px;
+	width: 1280px;
 	margin: 50px auto;
 }
 section h2 {
 	font-size: 28px;
-	font-weight: 700;
+	font-weight: 600;
 	padding: 20px 0 40px 0;
 }
 .products-container {

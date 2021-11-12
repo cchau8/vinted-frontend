@@ -3,12 +3,13 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
-const SignUp = ({ setToken }) => {
+const SignUp = ({ setUser }) => {
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
 	const navigate = useNavigate();
+
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
@@ -20,7 +21,7 @@ const SignUp = ({ setToken }) => {
 					password: password,
 				}
 			);
-			setToken(response.data.token);
+			setUser(response.data.token);
 			navigate("/");
 		} catch (error) {
 			console.log(error.message);
@@ -33,7 +34,6 @@ const SignUp = ({ setToken }) => {
 				onSubmit={(e) => {
 					handleSubmit(e);
 				}}
-				method="POST"
 				className="signup"
 			>
 				<span>S'inscrire</span>

@@ -4,6 +4,7 @@ header {
 	background-color: #fff;
 	display: flex;
 	border-bottom: 1px solid #dbdbdb;
+	position: relative;
 }
 header > div {
 	width: 1200px;
@@ -59,4 +60,5 @@ header button:hover {
 	background-color: #d63f60;
 	color: #fff;
 	outline: none;
+	margin-left: 120px;
 }
