@@ -24,6 +24,8 @@ const SignUp = ({ setUser }) => {
 			setUser(response.data.token);
 			navigate("/");
 		} catch (error) {
+			alert("wrong credentials");
+
 			console.log(error.message);
 		}
 	};

@@ -1,0 +1,13 @@
+.MuiSlider-root {
+	color: #09aeb7;
+}
+
+.MuiSlider-root:hover {
+	color: #10dce7;
+}
+
+.MuiSlider-valueLabelOpen {
+	border-radius: 20%;
+	background-color: rgb(230, 230, 230);
+	color: #000;
+}

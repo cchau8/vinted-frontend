@@ -3,6 +3,7 @@ import "../styles/offer.css";
 import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import Loading from "../components/Loading";
 
 const Offer = () => {
 	const [productData, setProductData] = useState();
@@ -20,7 +21,7 @@ const Offer = () => {
 	}, [offerId]);
 
 	return isLoading ? (
-		<p>loading</p>
+		<Loading />
 	) : (
 		<div className="offer-page">
 			<div className="offer-container">
@@ -45,8 +46,10 @@ const Offer = () => {
 						<span>{productData.product_name}</span>
 						<p>{productData.product_description}</p>
 						<div className="offer-owner">
-							<img src={productData.owner.account.avatar.secure_url} alt="" />
-							<span>{productData.owner.account.username}</span>
+							{productData.owner.account.avatar && (
+								<img src={productData.owner.account.avatar.secure_url} alt="" />
+							)}
+							<span>Vendu par : {productData.owner.account.username}</span>
 						</div>
 					</div>
 					<button>Acheter</button>

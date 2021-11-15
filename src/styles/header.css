@@ -1,5 +1,5 @@
 header {
-	width: 100%;
+	max-width: 1444px;
 	height: 100px;
 	background-color: #fff;
 	display: flex;
@@ -29,27 +29,18 @@ header img {
 	width: 100%;
 	object-fit: cover;
 }
-header button {
-	width: fit-content;
-	padding: 6px 20px;
-	margin: 10px;
-	border: none;
+
+.sell {
 	outline: var(--main-teal) 1px solid;
 	border-radius: 3px;
-	background-color: #fff;
-	color: var(--main-teal);
-	font-family: inherit;
-	cursor: pointer;
-	transition: ease-in 0.1s;
-}
-header button:hover {
-	color: #fff;
-	background-color: var(--main-teal);
-	transition: ease-in 0.1s;
-}
-.sell {
+	width: fit-content;
+	height: fit-content;
+	padding: 8px 20px;
+	margin: 10px;
 	background-color: var(--main-teal);
 	color: #fff;
+	text-decoration: none;
+	transition: ease-in 0.1s;
 }
 .sell:hover {
 	color: var(--main-teal);
@@ -61,4 +52,43 @@ header button:hover {
 	color: #fff;
 	outline: none;
 	margin-left: 120px;
+}
+
+.search {
+	width: 500px;
+	position: relative;
+}
+.search input {
+	width: 400px;
+	font-size: 20px;
+	font-family: "Maison Neue", sans-serif;
+	outline: none;
+	border: none;
+	background-color: #f0f0f0;
+	border-radius: 10px;
+	padding: 12px 12px 12px 45px;
+}
+.search input::placeholder {
+	color: grey;
+}
+.search-icon {
+	font-size: 20px;
+	color: #979797;
+	position: absolute;
+	top: 12px;
+	left: 10px;
+}
+.mobile {
+	display: none;
+}
+@media (max-width: 960px) {
+	.large {
+		display: none;
+	}
+	header {
+		margin: 0 10%;
+	}
+	.mobile {
+		display: inherit;
+	}
 }

@@ -1,0 +1,149 @@
+.publish-page {
+	background-color: #d8d8d8;
+	padding-top: 50px;
+}
+
+.publish {
+	max-width: 1444px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	gap: 30px;
+
+	font-size: 20px;
+}
+.publish > div {
+	display: flex;
+	flex-direction: column;
+	border-radius: 3px;
+	background-color: rgb(255, 255, 255);
+}
+.publish > div > div {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	padding: 0 20px;
+	height: 80px;
+
+	border-bottom: 1px solid #e7e7e7;
+}
+.publish input {
+	width: 50%;
+	font-size: 20px;
+	border: none;
+	border-bottom: 1px solid rgb(200, 200, 200);
+	outline: none;
+	line-height: 38px;
+}
+.publish input::placeholder,
+textarea::placeholder {
+	color: #acacac;
+}
+.publish textarea {
+	width: 50%;
+	font-size: 20px;
+	font-family: inherit;
+	border: none;
+	outline: none;
+	border-bottom: 1px solid rgb(200, 200, 200);
+	resize: none;
+	height: 220px;
+}
+.publish-main div:last-child {
+	height: 250px;
+}
+.picture {
+	height: 250px;
+	outline: 1px dashed black;
+	outline-offset: -18px;
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+}
+.picture .inputfile {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border: none;
+}
+
+.picture input {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.picture input + label {
+	font-size: 20px;
+	font-family: inherit;
+	font-weight: 700;
+	color: white;
+	background-color: var(--main-teal);
+	display: inline-block;
+	padding: 20px 25px;
+	border-radius: 5px;
+}
+.picture label {
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+}
+.picture label svg {
+	margin-right: 20px;
+	font-size: 20px;
+}
+.picture input:focus + label,
+.picture input + label:hover {
+	background-color: #fff;
+	color: var(--main-teal);
+	border: 1px solid var(--main-teal);
+}
+.picture .preview {
+	border: none;
+	height: 85%;
+	position: relative;
+}
+.preview img {
+	height: 100%;
+}
+.preview button {
+	position: absolute;
+	top: 0;
+	left: 200px;
+	cursor: pointer;
+}
+.price div:last-child {
+	width: 50%;
+	padding: 0;
+	align-self: flex-end;
+	display: flex;
+	justify-content: flex-start;
+}
+input[type="checkbox"] {
+	width: fit-content;
+	margin-right: 20px;
+}
+.publish input[type="submit"] {
+	align-self: flex-end;
+	font-weight: 700;
+	letter-spacing: 2px;
+	padding: 15px 50px;
+	width: fit-content;
+	font-family: inherit;
+	color: white;
+	background-color: var(--main-teal);
+	border-radius: 10px;
+	transition: ease 0.1s;
+}
+.publish input[type="submit"]:hover {
+	color: var(--main-teal);
+	background-color: #fff;
+	outline: 1px solid var(--main-teal);
+
+	cursor: pointer;
+	transition: ease 0.1s;
+}

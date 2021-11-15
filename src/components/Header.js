@@ -1,51 +1,28 @@
 import React from "react";
 import { useState } from "react";
+import "../assets/fonts/stylesheet.css";
 import "../styles/header.css";
+
 import { useNavigate } from "react-router";
 import Cookies from "js-cookie";
 import logo from "../assets/Vinted-logo.svg.png";
 import SignUpModal from "./SignUpModal";
 import LoginModal from "./LoginModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import Switch from "@mui/material/Switch";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Slider from "@mui/material/Slider";
-
-const Header = ({ token, setUser, setInput, sort, setSort, range, setRange }) => {
+import { Link } from "react-router-dom";
+const Header = ({ token, setUser, setInput }) => {
 	const [showSignUp, setShowSignUp] = useState(false);
 	const [showLogin, setShowLogin] = useState(false);
 	const navigate = useNavigate();
-	const handleChange = (event, newValue) => {
-		setRange(newValue);
-	};
+
 	return (
 		<header>
 			<div>
-				<a href="/">
+				<Link to="/">
 					<img src={logo} alt="vinted" />
-				</a>
-				<div className="filters">
-					<FormControlLabel
-						control={
-							<Switch
-								onClick={() => {
-									setSort(!sort);
-								}}
-							/>
-						}
-						label={sort ? "Prix croissant" : "Prix décroissant"}
-					/>
-					<Slider
-						getAriaLabel={() => "Minimum distance"}
-						onChangeCommitted={handleChange}
-						valueLabelDisplay="on"
-						// getAriaValueText={valuetext}
-						disableSwap
-						defaultValue={[10, 100]}
-						min={0}
-						max={500}
-					/>
-
+				</Link>
+				<div className="search large">
+					<FontAwesomeIcon icon="search" className="search-icon" />
 					<input
 						type="text"
 						placeholder="Rechercher des articles"
@@ -53,8 +30,7 @@ const Header = ({ token, setUser, setInput, sort, setSort, range, setRange }) =>
 					/>
 				</div>
 
-				<FontAwesomeIcon icon="search" />
-				<nav>
+				<nav className="large">
 					{token ? (
 						<button
 							onClick={() => {
@@ -89,8 +65,18 @@ const Header = ({ token, setUser, setInput, sort, setSort, range, setRange }) =>
 							</button>
 						</div>
 					)}
-					<button className="sell">Vends tes articles</button>
+					<button
+						onClick={() => {
+							token ? navigate("/publish") : navigate("/login");
+						}}
+						className="sell"
+					>
+						Vends tes articles
+					</button>
 				</nav>
+				<button className="mobile">
+					<FontAwesomeIcon icon="bars" />
+				</button>
 			</div>
 			{showSignUp && (
 				<SignUpModal

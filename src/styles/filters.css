@@ -1,0 +1,21 @@
+.filters {
+	width: 1280px;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: row;
+	gap: 20px;
+	padding: 20px;
+}
+.sort span:last-child {
+	font-size: 24px;
+	color: #727272;
+}
+.slider-container {
+	width: 550px;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+.slider-container > span:first-child {
+	width: 100px;
+}

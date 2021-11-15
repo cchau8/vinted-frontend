@@ -1,8 +1,8 @@
 .modal-container {
 	position: absolute;
 	top: 0;
-	left: 0;
-	width: 100vw;
+	left: -10%;
+	width: 120vw;
 	height: 100vh;
 	z-index: 2;
 	background-color: rgba(0, 0, 0, 0.39);
@@ -33,4 +33,7 @@
 .modal span {
 	font-size: 28px;
 	font-weight: 700;
+}
+.modal input[type="submit"] {
+	cursor: pointer;
 }

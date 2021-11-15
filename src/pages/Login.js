@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 import { useState } from "react";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
 const Login = ({ setUser }) => {
 	const [email, setEmail] = useState("");
@@ -22,6 +23,7 @@ const Login = ({ setUser }) => {
 			setUser(response.data.token);
 			navigate("/");
 		} catch (error) {
+			alert("wrong credentials");
 			console.log(error.message);
 		}
 	};
@@ -52,6 +54,7 @@ const Login = ({ setUser }) => {
 					}}
 				/>
 				<input type="submit" value="Se connecter" />
+				<Link to="/signup">Pas encore de compte ? Inscris-toi !</Link>
 			</form>
 		</div>
 	);

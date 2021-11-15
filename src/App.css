@@ -6,23 +6,54 @@
 	--main-teal: #09aeb7;
 }
 body {
-	font-family: Lato, sans-serif;
+	font-family: "Maison Neue", sans-serif;
 }
 .product-details {
 	display: flex;
 	flex-direction: column;
 }
 section {
-	width: 1280px;
-	margin: 50px auto;
+	max-width: 1444px;
+	margin: 50px 10%;
+}
+button {
+	width: fit-content;
+	padding: 6px 20px;
+	margin: 10px;
+	border: none;
+	outline: var(--main-teal) 1px solid;
+	border-radius: 3px;
+	background-color: #fff;
+	color: var(--main-teal);
+	font-family: inherit;
+	cursor: pointer;
+	transition: ease-in 0.1s;
+	font-size: 16px;
+}
+button:hover {
+	color: #fff;
+	background-color: var(--main-teal);
+	transition: ease-in 0.1s;
+}
+a {
+	text-decoration: none;
+	color: var(--main-teal);
+	cursor: pointer;
+	font-size: 16px;
+	transition: ease-in 0.2s;
+}
+a:hover {
+	text-decoration: underline;
+	transition: ease-in 0.2s;
 }
 section h2 {
 	font-size: 28px;
-	font-weight: 600;
-	padding: 20px 0 40px 0;
+	font-family: "Maison Neue Book";
+	padding: 20px 0 20px 0;
 }
 .products-container {
 	width: 100%;
+
 	display: flex;
 	flex-wrap: wrap;
 	gap: 30px 15px;
@@ -40,8 +71,14 @@ section h2 {
 	height: 360px;
 	object-fit: cover;
 }
+.pages {
+	display: flex;
+	justify-content: center;
+	margin-top: 80px;
+}
 .signup-page {
-	width: 1200px;
+	max-width: 1200px;
+	margin: 0 auto;
 	height: 90vh;
 }
 .signup {
@@ -66,10 +103,11 @@ section h2 {
 	padding: 10px;
 	font-size: 20px;
 	outline: none;
+	font-family: inherit;
 }
 .signup input::placeholder {
 	color: #adadad9f;
-	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+	font-family: "Maison Neue", sans-serif;
 	font-weight: 400;
 }
 
@@ -80,4 +118,5 @@ section h2 {
 	padding: 20px 30%;
 	border-radius: 10px;
 	color: #fff;
+	cursor: pointer;
 }

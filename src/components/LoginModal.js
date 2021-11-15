@@ -30,6 +30,7 @@ const LoginModal = ({ setShowLogin, showLogin, setUser }) => {
 			setUser(response.data.token);
 			closeModal();
 		} catch (error) {
+			alert("wrong credentials");
 			console.log(error.message);
 		}
 	};
