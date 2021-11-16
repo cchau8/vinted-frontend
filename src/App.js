@@ -1,5 +1,4 @@
 import "./App.css";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Offer from "./pages/Offer";
 import Header from "./components/Header";
@@ -7,10 +6,10 @@ import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import Publish from "./pages/Publish";
 import Footer from "./components/Footer";
-
+import Payment from "./pages/Payment";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
-
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
 	faTimes,
@@ -20,9 +19,8 @@ import {
 	faPlus,
 	faBars,
 } from "@fortawesome/free-solid-svg-icons";
-import Payment from "./pages/Payment";
-
 library.add(faTimes, faSearch, faSortAmountUp, faSortAmountDownAlt, faPlus, faBars);
+require("dotenv").config();
 
 function App() {
 	const [token, setToken] = useState(Cookies.get("token") || null);

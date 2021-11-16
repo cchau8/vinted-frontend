@@ -2,9 +2,9 @@ import React from "react";
 import axios from "axios";
 import "../styles/signup-modal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useRef, useState } from "react";
 
-import { useEffect, useRef, useState, setUserId } from "react";
-const SignUpModal = ({ setShowSignUp, showSignUp, setUser }) => {
+const SignUpModal = ({ setShowSignUp, showSignUp, setUser, setUserId }) => {
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -12,6 +12,7 @@ const SignUpModal = ({ setShowSignUp, showSignUp, setUser }) => {
 
 	// close modal
 	const closeModal = () => {
+		console.log("hello");
 		setShowSignUp(false);
 		const body = document.querySelector("body");
 		body.style.overflow = "auto";
@@ -33,7 +34,9 @@ const SignUpModal = ({ setShowSignUp, showSignUp, setUser }) => {
 			setUserId(response.data.id);
 			closeModal();
 		} catch (error) {
-			console.log(error.message);
+			console.log({
+				message: error.message,
+			});
 		}
 	};
 
