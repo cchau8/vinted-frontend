@@ -6,7 +6,6 @@ import { Checkbox } from "@mui/material";
 import { FormControlLabel } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Navigate, useNavigate } from "react-router";
-// import Login from "./Login";
 
 const Publish = ({ token }) => {
 	const [file, setFile] = useState();
@@ -24,7 +23,7 @@ const Publish = ({ token }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const formData = new FormData();
-		formData.append("picture", file);
+		formData.append("image", file);
 		formData.append("title", title);
 		formData.append("description", description);
 		formData.append("brand", brand);
@@ -66,7 +65,7 @@ const Publish = ({ token }) => {
 					{!file && (
 						<div className="inputfile">
 							<input type="file" id="file" name="pictures" onChange={imageChange} />
-							<label for="file">
+							<label htmlFor="file">
 								<FontAwesomeIcon icon="plus" />
 								Ajouter une photo
 							</label>
@@ -85,6 +84,35 @@ const Publish = ({ token }) => {
 							</button>
 						</div>
 					)}
+					{/* <div className="inputfile">
+						<input
+							type="file"
+							id="file"
+							name="pictures"
+							onChange={imageChange}
+							multiple
+						/>
+						<label for="file">
+							<FontAwesomeIcon icon="plus" />
+							Ajouter une photo
+						</label>
+					</div>
+					<div className="preview">
+						{file.map((el, i) => {
+							return (
+								<div>
+									<img src={URL.createObjectURL(file[i])} alt="preview" />
+									<button
+										onClick={() => {
+											setFile();
+										}}
+									>
+										x
+									</button>
+								</div>
+							);
+						})}
+					</div> */}
 				</div>
 				<div className="publish-main">
 					<div>
