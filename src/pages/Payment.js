@@ -7,7 +7,7 @@ import { useLocation } from "react-router";
 import axios from "axios";
 import { useState, useEffect } from "react";
 import Loading from "../components/Loading";
-const stripePromise = loadStripe(process.env.REACT_APP_STRIPE_API_PUBLIC);
+const stripePromise = loadStripe(REACT_APP_STRIPE_API_PUBLIC);
 const Payment = ({ token, userId }) => {
 	const [productData, setProductData] = useState();
 	const [isLoading, setIsLoading] = useState(true);
