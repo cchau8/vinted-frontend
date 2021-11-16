@@ -45,7 +45,10 @@ const CheckoutForm = ({ amount, title, token, userId }) => {
 					<button type="submit">Valider</button>
 				</form>
 			) : (
-				<span>Paiement effectué</span>
+				<div className="payment-success">
+					Paiement effectué pour <span>{title}</span> d'un montant de{" "}
+					<span>{amount}</span> €
+				</div>
 			)}
 		</>
 	);

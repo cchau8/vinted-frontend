@@ -21,7 +21,7 @@ const Header = ({ token, setUser, setInput, setUserId }) => {
 				<Link to="/">
 					<img src={logo} alt="vinted" />
 				</Link>
-				<div className="search large">
+				<div className="search">
 					<FontAwesomeIcon icon="search" className="search-icon" />
 					<input
 						type="text"
@@ -30,7 +30,7 @@ const Header = ({ token, setUser, setInput, setUserId }) => {
 					/>
 				</div>
 
-				<nav className="large">
+				<nav>
 					{token ? (
 						<button
 							onClick={() => {
@@ -74,9 +74,6 @@ const Header = ({ token, setUser, setInput, setUserId }) => {
 						Vends tes articles
 					</button>
 				</nav>
-				<button className="mobile">
-					<FontAwesomeIcon icon="bars" />
-				</button>
 			</div>
 			{showSignUp && (
 				<SignUpModal

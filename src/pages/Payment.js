@@ -16,6 +16,7 @@ const Payment = ({ token, userId }) => {
 	const location = useLocation();
 	const buyersFee = 0.4;
 	const shippingFee = 0.8;
+
 	useEffect(() => {
 		const fetchData = async () => {
 			const response = await axios.get(
@@ -27,6 +28,10 @@ const Payment = ({ token, userId }) => {
 		fetchData();
 	}, [location.state.id]);
 
+	let total = 0;
+	if (!isLoading) {
+		total = (productData.product_price + shippingFee + buyersFee).toFixed(2);
+	}
 	return token ? (
 		isLoading ? (
 			<Loading />
@@ -51,9 +56,7 @@ const Payment = ({ token, userId }) => {
 						</div>
 						<div className="total">
 							<span>Total</span>
-							<span>
-								{(productData.product_price + shippingFee + buyersFee).toFixed(2)} €
-							</span>
+							<span>{total} €</span>
 						</div>
 					</div>
 
@@ -62,24 +65,14 @@ const Payment = ({ token, userId }) => {
 							<p>
 								Il ne vous reste plus qu'une étape pour vous offrir{" "}
 								<span>{productData.product_name}</span>. Vous allez payer un total
-								de{" "}
-								<span>
-									{(productData.product_price + shippingFee + buyersFee).toFixed(
-										2
-									)}{" "}
-									€
-								</span>{" "}
-								(frais de protection et frais de port inclus).
+								de <span>{total} €</span> (frais de protection et frais de port
+								inclus).
 							</p>
 						</div>
 
 						<Elements stripe={stripePromise} className="card-input">
 							<CheckoutForm
-								amount={(
-									productData.product_price +
-									shippingFee +
-									buyersFee
-								).toFixed(2)}
+								amount={total}
 								title={productData.product_name}
 								token={token}
 								userId={userId}

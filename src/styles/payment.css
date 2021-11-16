@@ -13,7 +13,6 @@
 	flex-direction: column;
 	align-items: flex-start;
 	border-radius: 20px;
-	/* justify-content: space-evenly; */
 }
 h5 {
 	color: grey;
@@ -30,7 +29,6 @@ h5 {
 .recap > div {
 	display: flex;
 	justify-content: space-between;
-	/* outline: 1px solid lightgrey; */
 	outline-offset: 5px;
 }
 .total > div {
@@ -60,4 +58,11 @@ h5 {
 	outline: 1px dashed var(--main-teal);
 	outline-offset: 20px;
 	border-radius: 10px;
+}
+.payment-success {
+	margin: 30px;
+	font-size: 16px;
+}
+.payment-success span {
+	font-weight: 700;
 }
