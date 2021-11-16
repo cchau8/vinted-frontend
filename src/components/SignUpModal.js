@@ -3,7 +3,7 @@ import axios from "axios";
 import "../styles/signup-modal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, setUserId } from "react";
 const SignUpModal = ({ setShowSignUp, showSignUp, setUser }) => {
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
@@ -30,6 +30,7 @@ const SignUpModal = ({ setShowSignUp, showSignUp, setUser }) => {
 				}
 			);
 			setUser(response.data.token);
+			setUserId(response.data.id);
 			closeModal();
 		} catch (error) {
 			console.log(error.message);

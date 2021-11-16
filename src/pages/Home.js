@@ -100,6 +100,7 @@ const Home = ({
 											id="demo-simple-select-autowidth"
 											autoWidth
 											label="Voir plus"
+											value={limit}
 											onChange={(e) => {
 												setLimit(Number(e.target.value));
 											}}

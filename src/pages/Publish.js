@@ -5,6 +5,8 @@ import axios from "axios";
 import { Checkbox } from "@mui/material";
 import { FormControlLabel } from "@mui/material";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Navigate, useNavigate } from "react-router";
+// import Login from "./Login";
 
 const Publish = ({ token }) => {
 	const [file, setFile] = useState();
@@ -18,6 +20,7 @@ const Publish = ({ token }) => {
 	const [price, setPrice] = useState(0);
 	const [exchange, setExchange] = useState(false);
 
+	const navigate = useNavigate();
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const formData = new FormData();
@@ -42,17 +45,21 @@ const Publish = ({ token }) => {
 				}
 			);
 			console.log(response.data);
+			if (response.data._id) {
+				navigate(`/offer/${response.data._id}`);
+			}
 		} catch (error) {
 			console.log(error.message);
 		}
 	};
+
 	const imageChange = (e) => {
 		if (e.target.files && e.target.files.length > 0) {
 			setFile(e.target.files[0]);
 		}
 	};
 
-	return (
+	return token ? (
 		<div className="publish-page">
 			<form onSubmit={handleSubmit} className="publish">
 				<div className="picture">
@@ -189,6 +196,8 @@ const Publish = ({ token }) => {
 				<input type="submit" value="Ajouter" />
 			</form>
 		</div>
+	) : (
+		<Navigate to="/login" />
 	);
 };
 

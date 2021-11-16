@@ -3,7 +3,7 @@ import { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router";
 
-const SignUp = ({ setUser }) => {
+const SignUp = ({ setUser, setUserId }) => {
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -22,6 +22,7 @@ const SignUp = ({ setUser }) => {
 				}
 			);
 			setUser(response.data.token);
+			setUserId(response.data.id);
 			navigate("/");
 		} catch (error) {
 			alert("wrong credentials");

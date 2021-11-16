@@ -1,0 +1,63 @@
+.payment-page {
+	background-color: #dbdbdb;
+	padding: 50px;
+	font-size: 20px;
+}
+.payment {
+	max-width: 720px;
+	margin: 30px auto;
+	height: 600px;
+	padding: 60px;
+	background-color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	border-radius: 20px;
+	/* justify-content: space-evenly; */
+}
+h5 {
+	color: grey;
+	padding: 20px 0;
+	font-size: 24px;
+	margin-bottom: 30px;
+}
+.recap {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+}
+.recap > div {
+	display: flex;
+	justify-content: space-between;
+	/* outline: 1px solid lightgrey; */
+	outline-offset: 5px;
+}
+.total > div {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 20px;
+}
+.payment-block p {
+	font-size: 16px;
+	line-height: 24px;
+}
+.payment-block p span {
+	font-weight: 700;
+}
+.total {
+	margin-bottom: 40px;
+}
+.card-form {
+	width: 100%;
+	margin: 20px 0;
+}
+.card-form button {
+	margin: 30px 0 0 80%;
+}
+.payment-block {
+	margin-top: 30px;
+	outline: 1px dashed var(--main-teal);
+	outline-offset: 20px;
+	border-radius: 10px;
+}

@@ -10,7 +10,7 @@ import SignUpModal from "./SignUpModal";
 import LoginModal from "./LoginModal";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Link } from "react-router-dom";
-const Header = ({ token, setUser, setInput }) => {
+const Header = ({ token, setUser, setInput, setUserId }) => {
 	const [showSignUp, setShowSignUp] = useState(false);
 	const [showLogin, setShowLogin] = useState(false);
 	const navigate = useNavigate();
@@ -83,10 +83,16 @@ const Header = ({ token, setUser, setInput }) => {
 					setShowSignUp={setShowSignUp}
 					showSignUp={showSignUp}
 					setUser={setUser}
+					setUserId={setUserId}
 				/>
 			)}
 			{showLogin && (
-				<LoginModal showLogin={showLogin} setShowLogin={setShowLogin} setUser={setUser} />
+				<LoginModal
+					showLogin={showLogin}
+					setShowLogin={setShowLogin}
+					setUser={setUser}
+					setUserId={setUserId}
+				/>
 			)}
 		</header>
 	);

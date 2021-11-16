@@ -4,7 +4,7 @@ import "../styles/signup-modal.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import { useEffect, useRef, useState } from "react";
-const LoginModal = ({ setShowLogin, showLogin, setUser }) => {
+const LoginModal = ({ setShowLogin, showLogin, setUser, setUserId }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const modalRef = useRef(null);
@@ -28,6 +28,8 @@ const LoginModal = ({ setShowLogin, showLogin, setUser }) => {
 				}
 			);
 			setUser(response.data.token);
+			setUserId(response.data.id);
+
 			closeModal();
 		} catch (error) {
 			alert("wrong credentials");

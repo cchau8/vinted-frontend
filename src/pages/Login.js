@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
-const Login = ({ setUser }) => {
+const Login = ({ setUser, setUserId }) => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 
@@ -21,6 +21,7 @@ const Login = ({ setUser }) => {
 				}
 			);
 			setUser(response.data.token);
+			setUserId(response.data.id);
 			navigate("/");
 		} catch (error) {
 			alert("wrong credentials");

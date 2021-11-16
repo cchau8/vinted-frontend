@@ -4,6 +4,7 @@ import { useParams } from "react-router";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Loading from "../components/Loading";
+import { Link } from "react-router-dom";
 
 const Offer = () => {
 	const [productData, setProductData] = useState();
@@ -34,7 +35,7 @@ const Offer = () => {
 						{productData.product_details.map((el, i) => {
 							const key = Object.keys(el);
 							return (
-								<li>
+								<li key={i}>
 									<span>{key[0].toUpperCase()} : </span>
 									<span>{el[key]}</span>
 								</li>
@@ -52,7 +53,9 @@ const Offer = () => {
 							<span>Vendu par : {productData.owner.account.username}</span>
 						</div>
 					</div>
-					<button>Acheter</button>
+					<Link to="/payment" state={{ id: productData._id }}>
+						Acheter
+					</Link>
 				</div>
 			</div>
 		</div>

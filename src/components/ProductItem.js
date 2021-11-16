@@ -7,7 +7,7 @@ const ProductItem = ({ item }) => {
 				<span>{item.owner.account.username}</span>
 			</div>
 
-			<img src={item.product_image.url} alt="qergq" />
+			<img src={item.product_image.secure_url} alt="qergq" />
 			<div className="product-details">
 				<span>{item.product_price} €</span>
 				<span>{item.product_details[1].size}</span>
